@@ -66,4 +66,26 @@
 .filter{
     display: flex;
    margin: 0 0 10px;
+   padding-right:10px;
+}
+.Filterb{
+    margin-left: 20px;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+}
+.square{
+    /* color: antiquewhite; */
+    margin: 10px;
+    height: 200px;
+    width: 100px;
+   background-color: #f0f0f0;
 }
