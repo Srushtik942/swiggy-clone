@@ -25,7 +25,7 @@
     width: 100px;
 
 }
-.search{
+.filter{
    padding:  10px;
 
 }
@@ -61,4 +61,9 @@
     flex-wrap: wrap;
     /* padding: 5px; */
 
+}
+
+.filter{
+    display: flex;
+   margin: 0 0 10px;
 }
