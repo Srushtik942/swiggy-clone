@@ -31,6 +31,15 @@ const fetchData = async ()=>{
   console.log(setListOfRestaurant)
 };
 
+const filteredrestaurant = ()=>{
+  if(topRated==false){
+    const filteredlist = listofRestaurant.filter(res=>res.info.avgRating > 4);
+    // console.log(filteredlist);
+    setListOfRestaurant(filteredlist);
+
+
+  }
+}
 
 //conditional rendering
 // if(listofRestaurant.length === 0 )
