@@ -52,7 +52,8 @@ const fetchData = async ()=>{
       <button onClick={()=>{
         console.log(searchText);
 
-        const filteredrestaurant = listofRestaurant.filteredlist();
+        const filteredrestaurant = listofRestaurant.filter((restaurant) => restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()));
+        setListOfRestaurant(filteredrestaurant);
       }}
       >Search</button>
        </div>
@@ -66,8 +67,8 @@ const fetchData = async ()=>{
           // setListOfRestaurant(filteredlist);
           // console.log("Button clicked")
           const filteredlist = listofRestaurant.filter(restaurants=>restaurants.info.avgRating > 4);
-          console.log(filteredlist); // setListOfRestaurant(filteredlist);
-
+          setListOfRestaurant(filteredlist);
+          console.log(filteredlist); 
         }}
 
         >Top Rated Restaurants</button>
