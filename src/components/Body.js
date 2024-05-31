@@ -77,7 +77,7 @@ const filteredrestaurant = ()=>{
           // console.log("Button clicked")
           const filteredlist = listofRestaurant.filter(restaurants=>restaurants.info.avgRating > 4);
           setListOfRestaurant(filteredlist);
-          console.log(filteredlist); 
+          console.log(filteredlist);
         }}
 
         >Top Rated Restaurants</button>
