@@ -52,15 +52,19 @@
 
 .res-logo{
 
-    width: 100%;
+   max-width: 100%;
     /* transition: transform .2s;
     transform: scale(1.5); */
 }
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    /* padding: 5px; */
+    padding: 5px;
 
+}
+.search{
+    padding: 10px;
+    display: flex;
 }
 
 .filter{
@@ -69,7 +73,12 @@
    padding-right:10px;
 }
 .Filterb{
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    cursor: pointer;
+    width: 152px;
+    height: 38px;
+    margin-left: auto;
+
 }
 .shimmer-container{
     display: flex;
@@ -88,4 +97,7 @@
     height: 200px;
     width: 100px;
    background-color: #f0f0f0;
+}
+.search-box{
+    margin-right: 5px;
 }

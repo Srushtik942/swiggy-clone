@@ -10,6 +10,7 @@ const Body = ()=>{
 
   //local state variable
   const[listofRestaurant,setListOfRestaurant] = useState([]);
+  const[filteredRestaurant, setfilteredRestaurant] = useState([]);
 
   const [searchText, setsearchText] = useState("");
 
@@ -24,72 +25,58 @@ const fetchData = async ()=>{
 
   const json = await data.json();
 
-  console.log(json);
+  // console.log(json);
 
   //optional chaining
-  setListOfRestaurant(json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants);
-  console.log(setListOfRestaurant)
+  const restaurants = (json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  // const restaurants = (json?.data?.success?.cards[4]?.gridWidget?.gridElements.infoWithStyle.restaurants);
+  setListOfRestaurant(restaurants);
+  setfilteredRestaurant(restaurants);
+  console.log(setListOfRestaurant);
+  console.log(setfilteredRestaurant);
+
+
 };
 
-const filteredrestaurant = ()=>{
-  if(topRated==false){
-    const filteredlist = listofRestaurant.filter(res=>res.info.avgRating > 4);
-    // console.log(filteredlist);
-    setListOfRestaurant(filteredlist);
+const search = () =>{
+  const filter = listofRestaurant.filter((res)=>
+  res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+  setfilteredRestaurant(filter);
+};
+
+const TopRated = () =>{
+  const filter = listofRestaurant.filter((res)=> res.info.avgRating > 4);
+  setfilteredRestaurant(filter);
+};
 
 
-  }
-}
-
-//conditional rendering
-// if(listofRestaurant.length === 0 )
-//   {
-//     return <Shimmer></Shimmer>;
-
-//   }
-// console.log("Body rendered");
-
-    return listofRestaurant.length === 0 ? <Shimmer></Shimmer>:(
+    return listofRestaurant.length === 0 ? (
+    <Shimmer/>
+  ) : (
      <div className="body">
        <div className="filter">
-       <div className="seacrh">
+       <div className="search">
        <input type ="text" className="search-box" value={searchText} onChange={(e)=>{
 
         setsearchText(e.target.value);
 
        }}/>
-      <button onClick={()=>{
-        console.log(searchText);
-
-        const filteredrestaurant = listofRestaurant.filter((restaurant) => restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()));
-        setListOfRestaurant(filteredrestaurant);
-      }}
-      >Search</button>
-       </div>
-        <button className="Filterb" onClick={()=>
-        {
-
-          // filter logic here
-          // const filteredlist = listofRestaurant.filter(
-          //   (res)=> res.Data.avgRating > 4.5
-          // );
-          // setListOfRestaurant(filteredlist);
-          // console.log("Button clicked")
-          const filteredlist = listofRestaurant.filter(restaurants=>restaurants.info.avgRating > 4);
-          setListOfRestaurant(filteredlist);
-          console.log(filteredlist);
-        }}
-
-        >Top Rated Restaurants</button>
-       </div>
+      {/* Search function called */}
+        <button onClick= {search}>Search</button>
+        </div>
+       {/* Top Rated restaurant function called */}
+         <button className="Filterb" onClick={TopRated}>Top-Picks For you!</button>
+         </div>
        <div className="res-container">
         {/* map */}
-       {listofRestaurant.map((restaurant)=>(
+       {filteredRestaurant.map((restaurant)=>(
          <RestaurantCard key = {restaurant.info.id}resData={restaurant}/>
        ))}
 
        </div>
      </div>
+
+
     );
  };
 export default Body;
