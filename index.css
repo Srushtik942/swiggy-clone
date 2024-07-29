@@ -1,3 +1,13 @@
+
+#root{
+    background-color: lavenderblush;
+    text-decoration: none;
+    width: 100%;
+    /* height: 100vh; */
+}
+.imga{
+    padding-left: 342px;
+}
 .header{
     display: flex;
     justify-content: space-between;
@@ -53,6 +63,7 @@
 .res-logo{
 
    max-width: 100%;
+   height: 50%;
     /* transition: transform .2s;
     transform: scale(1.5); */
 }
@@ -100,4 +111,27 @@
 }
 .search-box{
     margin-right: 5px;
+}
+.new{
+    text-decoration: none;
+    color: black;
+}
+.n1{
+    text-decoration: none;
+    color: black;
+    max-width: 100%;
+    display: grid;
+    width: 240px;
+}
+.menu{
+    width: 220px;
+    /* height: 370px; */
+    background-color: rgb(219, 219, 219);
+    padding: 5px;
+    margin: 15px;
+}
+.res-menu{
+   text-align: center;
+   margin: 40px;
+
 }

@@ -44,3 +44,11 @@ const fetchData = async ()=>{
 
 };
 -->
+#CORS: Cross Origin resource Sharing
+-it enables to controlled access to resources located outside of given domain
+#Insted of CORS plugin we can use corsproxy.io
+
+---
+# 2 types of routing
+-Client Side Routing
+-Server Side Rou ting

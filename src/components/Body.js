@@ -1,11 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.js";
+import { Link } from "react-router-dom";
 
 
 
 //normal variable
 // let resData=[];
+
 const Body = ()=>{
 
   //local state variable
@@ -14,18 +16,23 @@ const Body = ()=>{
 
   const [searchText, setsearchText] = useState("");
 
+
+
 useEffect(()=>{
+  console.log("Error!")
   fetchData();
 },[]);
 
 //fetching data
 const fetchData = async ()=>{
-  const data = await  fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  // const data = await  fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  const data = await  fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  //  console.log(data);
 
 
   const json = await data.json();
 
-  // console.log(json);
+  console.log(json);
 
   //optional chaining
   const restaurants = (json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -50,6 +57,7 @@ const TopRated = () =>{
 };
 
 
+
     return listofRestaurant.length === 0 ? (
     <Shimmer/>
   ) : (
@@ -69,8 +77,9 @@ const TopRated = () =>{
          </div>
        <div className="res-container">
         {/* map */}
+        {/* Link is used for clickable restaurant card  */}
        {filteredRestaurant.map((restaurant)=>(
-         <RestaurantCard key = {restaurant.info.id}resData={restaurant}/>
+         <Link key = {restaurant.info.id} to ={"/restaurants/" + restaurant.info.id} class="n1"><RestaurantCard resData={restaurant}/></Link>
        ))}
 
        </div>

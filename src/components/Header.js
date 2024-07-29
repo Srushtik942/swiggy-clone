@@ -1,21 +1,33 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 const Header = ()=>{
   // const btnName = "login";
 
   const[btnNAmeReact , setbtnNAmereact] = useState("Login");
+
+//   useEffect(()=>{
+// console.log("Useeffect called!");
+//   })
     return(
       <div className="header">
         <div className="logo">
-          <img  src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ychB0gzKUiciTunIPeII_aIoptW3k81YQpa0wryEFA&s"/>
+          <img  src= "https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&txt_keyword=All"/>
         </div>
         <div className="navitem">
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li>
+
+              <Link to="/" class="new">Home</Link></li>
+            <li>
+              <Link to ="/About" class="new">About Us</Link></li>
+            <li>
+              <Link to = "/Contact" class="new">Contact Us</Link></li>
+
             <li>Cart</li>
             <li>Profile</li>
+
             <button
             className="login"
              onClick={ () => {
