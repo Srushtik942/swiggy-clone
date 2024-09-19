@@ -2,12 +2,12 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus.js";
 
 
 
 //normal variable
 // let resData=[];
-
 const Body = ()=>{
 
   //local state variable
@@ -19,7 +19,7 @@ const Body = ()=>{
 
 
 useEffect(()=>{
-  console.log("Error!")
+
   fetchData();
 },[]);
 
@@ -32,11 +32,10 @@ const fetchData = async ()=>{
 
   const json = await data.json();
 
-  console.log(json);
+  console.log(json, listofRestaurant);
 
   //optional chaining
   const restaurants = (json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-  // const restaurants = (json?.data?.success?.cards[4]?.gridWidget?.gridElements.infoWithStyle.restaurants);
   setListOfRestaurant(restaurants);
   setfilteredRestaurant(restaurants);
   console.log(setListOfRestaurant);
@@ -44,6 +43,12 @@ const fetchData = async ()=>{
 
 
 };
+
+const onlineStatus = useOnlineStatus();
+if(onlineStatus === false) return <h1>Looks like you're offline,Please check your internet connection! </h1>
+
+
+
 
 const search = () =>{
   const filter = listofRestaurant.filter((res)=>
@@ -62,20 +67,36 @@ const TopRated = () =>{
     <Shimmer/>
   ) : (
      <div className="body">
-       <div className="filter">
-       <div className="search">
-       <input type ="text" className="search-box" value={searchText} onChange={(e)=>{
+       <div className="filter flex mx-28">
+       <div className="search m-2 p-4 ">
+       <input type ="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
 
         setsearchText(e.target.value);
 
        }}/>
+
+
+
       {/* Search function called */}
-        <button onClick= {search}>Search</button>
+        <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+        onClick= {search}>Search</button>
         </div>
+
        {/* Top Rated restaurant function called */}
-         <button className="Filterb" onClick={TopRated}>Top-Picks For you!</button>
+       <div className="px-4 py-2 flex items-center mx-18 ">
+
+       <button className="px-4 py-2 bg-red-100 rounded-lg mx-20 " onClick={TopRated}>Top-Picks For you!</button>
+
+       <h3 className="font-bold mx-34">Hey Foodie! Whats on your mind?🤭</h3>
+
+
+
+
+
+       </div>
+
          </div>
-       <div className="res-container">
+       <div className="flex flex-wrap ">
         {/* map */}
         {/* Link is used for clickable restaurant card  */}
        {filteredRestaurant.map((restaurant)=>(

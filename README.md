@@ -52,3 +52,10 @@ const fetchData = async ()=>{
 # 2 types of routing
 -Client Side Routing
 -Server Side Rou ting
+
+
+# parcel
+- Dev build
+- Local server
+- Bundling
+- Error Handling

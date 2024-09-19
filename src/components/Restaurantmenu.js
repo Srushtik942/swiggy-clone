@@ -2,11 +2,21 @@ import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { Menu_API } from "../../utils/constants";
+
+import RestaurantCategory from "./RestaurantCategory";
 const Restaurantmenu = ()=>{
 
     const [resInfo,setResInfo] = useState(null);
 
     const {resId} = useParams();
+
+    const [showIndex, setShowIndex] = useState(null);
+
+
+
+
+    //creating custom hook
+    // const resInfo  = useRestaurantMenu(resId);
 
 useEffect(()=>{
     fetchMenu();
@@ -32,9 +42,6 @@ const fetchMenu = async () => {
     costForTwoMessage
   } = resInfo?.cards?.[2]?.card?.card?.info || {};
 
-  // const itemCards =
-  //   resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[3]?.card?.card?.itemCards ||[];
-  //    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[3]?.card?.card?.itemCards[3]?.card?.info [2] ;
 
   const itemCards =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[3]?.card?.card?.categories?.[0]?.itemCards ||
@@ -42,24 +49,41 @@ const fetchMenu = async () => {
 
 
 
-console.log(resInfo);
-console.log(name,cuisines,costForTwoMessage);
+// console.log(resInfo);
+// console.log(name,cuisines,costForTwoMessage);
 
-// if(resInfo===null) return <Shimmer/>;
+
+
+const category =
+resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  (c)=>
+    c.card?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+
+console.log(category);
+
+
 return resInfo === null ? (
     <Shimmer />
   ) : (
-    <div className="res-menu">
-       <h1>{resInfo?.cards?.[2]?.card?.card?.info?.name}</h1>
+    <div className="text-center ">
+       <h1 className="font-bold my-6 text-2xl">{resInfo?.cards?.[2]?.card?.card?.info?.name}</h1>
     <div className="menu">
-      <p>{resInfo?.cards?.[2]?.card?.card?.info?.cuisines.join(" ,") } - {resInfo?.cards?.[2]?.card?.card?.info?.costForTwoMessage} </p>
-      <h2>Menu</h2>
-      <ul>
-        {itemCards.map((item, index) => (
-          <li key={index}>{item?.card?.info?.name} - {" Rs. "}
-          {item?.card?.info?.price/100}</li>
-        ))}
-      </ul>
+      <p className="font-bold text-lg">{resInfo?.cards?.[2]?.card?.card?.info?.cuisines.join(" ,") } - {resInfo?.cards?.[2]?.card?.card?.info?.costForTwoMessage} </p>
+
+    {/* categories accordian */}
+    {category.map((Cat,index)=>(
+//controlled component
+
+      <RestaurantCategory key = {Cat?.card?.card.title} data ={Cat?.card?.card}
+
+      showItems = {index === showIndex ? true :false}
+
+      setShowIndex={()=>setShowIndex(index)}
+
+
+      />
+      ))}
     </div>
     </div>
   );

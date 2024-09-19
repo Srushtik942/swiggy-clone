@@ -38,7 +38,7 @@
 // jsx =>babel transpiles to it react.createelemet=>makes js object=>rendered as HTMLelement
 // jsx(transpiled before it reachesthe JS Engine)  parcel-babbel
 
-import React  from "react";
+import React,{lazy,Suspense, useEffect, useState}  from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body  from "./components/Body";
@@ -46,15 +46,40 @@ import About from "./components/About";
 import Contact  from "./components/Contact";
 import Error from "./components/Error";
 import Restaurantmenu from "./components/Restaurantmenu";
-
+import Grocery from "./components/Grocery";
 import { createBrowserRouter,RouterProvider, Outlet } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
+import UserContext from "../utils/UserContext";
+
+
+
+const Grocery = lazy(()=>import("./components/Grocery"));
 
 const Applayout =()=>{
+
+  //authentication
+
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(()=>{
+
+    //make api call
+    const data = {
+      name:"Srushti Kulkarni"
+    }
+    setUserName(data.name);
+
+  },[])
+
+
   return(
+    <UserContext.Provider value={{loggedUser:userName}}>
     <div className="app">
     <Header></Header>
     <Outlet></Outlet>
     </div>
+    </UserContext.Provider>
   );
 
 };
@@ -70,12 +95,16 @@ const appRoute = createBrowserRouter([{
     },
     {
       path:"/about",
-      element : <About/>,
+      element :<Suspense fallback={<Shimmer/>}><About/></Suspense>,
 
     },
     {
       path: "/contact",
       element : <Contact/>,
+    },
+    {
+      path: "/Grocery",
+      element : <Suspense fallback={<Shimmer/>}><Grocery/></Suspense>,
     },
     {
       path: "/restaurants/:resId",
