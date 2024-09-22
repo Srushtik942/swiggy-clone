@@ -77,6 +77,7 @@ const TopRated = () =>{
 
 
 
+
       {/* Search function called */}
         <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
         onClick= {search}>Search</button>

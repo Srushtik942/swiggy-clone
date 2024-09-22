@@ -50,6 +50,9 @@ import Grocery from "./components/Grocery";
 import { createBrowserRouter,RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 import UserContext from "../utils/UserContext";
+import { Provider } from "react-redux";
+import InstaStore from "../utils/InstaStore";
+import Cart from "./components/Cart";
 
 
 
@@ -70,16 +73,18 @@ const Applayout =()=>{
     }
     setUserName(data.name);
 
-  },[])
+  },[]);
 
 
   return(
+    <Provider store={InstaStore}>
     <UserContext.Provider value={{loggedUser:userName}}>
     <div className="app">
     <Header></Header>
     <Outlet></Outlet>
     </div>
     </UserContext.Provider>
+    </Provider>
   );
 
 };
@@ -110,6 +115,10 @@ const appRoute = createBrowserRouter([{
       path: "/restaurants/:resId",
       element: <Restaurantmenu/>,
     },
+    {
+      path: "/Cart",
+      element: <Cart/>,
+    }
 
   ],
   errorElement:<Error/>,

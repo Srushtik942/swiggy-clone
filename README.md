@@ -29,7 +29,7 @@
 
 #API CALling from other website to our website
 
-<!--
+
 seEffect(()=>{
   fetchData();
 },[]);
@@ -43,7 +43,7 @@ const fetchData = async ()=>{
   console.log(json);
 
 };
--->
+
 #CORS: Cross Origin resource Sharing
 -it enables to controlled access to resources located outside of given domain
 #Insted of CORS plugin we can use corsproxy.io
@@ -59,3 +59,12 @@ const fetchData = async ()=>{
 - Local server
 - Bundling
 - Error Handling
+
+# Redux Toolkit
+
+ -Install @reduxjs/toolkit and react-redux
+ -Build our store
+ -Connect store to app
+ -Slice (Cart slice)
+ - Dispatch Action
+ -Read the data using Selector
