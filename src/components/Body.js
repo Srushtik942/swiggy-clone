@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus.js";
+import Head  from "./Head";
 
 
 
@@ -13,6 +14,7 @@ const Body = ()=>{
   //local state variable
   const[listofRestaurant,setListOfRestaurant] = useState([]);
   const[filteredRestaurant, setfilteredRestaurant] = useState([]);
+  const [list,setlist] = useState([]);
 
   const [searchText, setsearchText] = useState("");
 
@@ -27,7 +29,7 @@ useEffect(()=>{
 const fetchData = async ()=>{
   // const data = await  fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
   const data = await  fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  //  console.log(data);
+   console.log(data);
 
 
   const json = await data.json();
@@ -35,12 +37,15 @@ const fetchData = async ()=>{
   console.log(json, listofRestaurant);
 
   //optional chaining
-  const restaurants = (json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  const restaurants = (json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   setListOfRestaurant(restaurants);
   setfilteredRestaurant(restaurants);
   console.log(setListOfRestaurant);
   console.log(setfilteredRestaurant);
 
+  const resMenu = (json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+  setlist(resMenu);
+  console.log(resMenu);
 
 };
 
@@ -63,11 +68,20 @@ const TopRated = () =>{
 
 
 
+
+
     return listofRestaurant.length === 0 ? (
     <Shimmer/>
+
   ) : (
-     <div className="body">
-       <div className="filter flex mx-28">
+
+
+     <div className="body ">
+      <div className="font-bold text-lg px-10 m-4">Hey Foodie! Whats, on your mind?🤭</div>
+
+
+
+       <div className="filter flex mx-6">
        <div className="search m-2 p-4 ">
        <input type ="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
 
@@ -78,25 +92,20 @@ const TopRated = () =>{
 
 
 
+
       {/* Search function called */}
-        <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+        <button className="font-semibold px-2 py-2 ml-4 bg-green-100 m-3 rounded-lg"
         onClick= {search}>Search</button>
         </div>
 
        {/* Top Rated restaurant function called */}
        <div className="px-4 py-2 flex items-center mx-18 ">
 
-       <button className="px-4 py-2 bg-red-100 rounded-lg mx-20 " onClick={TopRated}>Top-Picks For you!</button>
-
-       <h3 className="font-bold mx-34">Hey Foodie! Whats on your mind?🤭</h3>
-
-
-
-
-
+       <button className="font-semibold px-4 py-2 bg-red-100 rounded-lg mx-18 " onClick={TopRated}>Top-Picks For you!</button>
        </div>
 
          </div>
+
        <div className="flex flex-wrap ">
         {/* map */}
         {/* Link is used for clickable restaurant card  */}
@@ -105,6 +114,12 @@ const TopRated = () =>{
        ))}
 
        </div>
+{/*
+       <div >
+        {list.map((rMenu)=>(
+        <Link key ={rMenu.id} to={"/resMenu/"+ rMenu.id }><Head rData={rMenu}/></Link>
+        ))}
+      </div> */}
      </div>
 
 

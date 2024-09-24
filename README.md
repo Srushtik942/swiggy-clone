@@ -68,3 +68,25 @@ const fetchData = async ()=>{
  -Slice (Cart slice)
  - Dispatch Action
  -Read the data using Selector
+
+
+
+ # Types of testing (developer)
+
+  -Unit Testing: we can test one component in isolation
+  -Integration Testing: Testing the integration of component
+  -End to End Testing -(e2e testing): Testing react application as sson as user land on the web site and user leaving the website
+
+
+
+# Setting up testing in our app
+ - install react testing library
+ - installed jest
+ - installed babel dependencies
+ - configured babel
+ - configure Parcel config file to disable default   babel transpilation
+ - Jest Configuration (npx jest init)
+ -jsdom(environment for testing)
+ -Install @babel/preset-react to make jsx work in test case
+ -Include @babel/preset-react inside my babel config
+ -Install @testing-library/jest-dom

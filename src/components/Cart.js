@@ -17,13 +17,13 @@ const Cart =()=>{
     <div className="text-center m-7 p-17 ">
     <h1 className="text-2xl font-bold">Cart</h1>
     <div className="w-6/12 m-auto">
-    <button className="p-2 m-2 bg-black text-white rounded-lg"
+    <button className="p-2 m-4 bg-red-400 text-white rounded-lg"
     onClick={handleClearCart}
     >
 
     Clear Cart
     </button>
-    {cartItems.length === 0 && (<h1>Cart is empty,Add items to the cart! </h1>)
+    {cartItems.length === 0 && (<div className="m-2 p-2"><img src="https://i.pinimg.com/736x/2e/ac/fa/2eacfa305d7715bdcd86bb4956209038.jpg"></img> </div>)
     }
      <Itemlist items={cartItems}/>
     </div>

@@ -22,7 +22,7 @@ return (
 
 <div className="w-3/12 p-4 mx-98 ">
            <div className=" absolute ">
-            <button className="p-2 mb-1 mx-24 rounded-lg bg-green-100 text-black shadow-lg  "
+            <button className="p-2 mb-1 mx-24 rounded-lg bg-white text-green-500 font-bold shadow-lg  "
             onClick={()=> handleAddItem(item)}
             >Add +
             </button>

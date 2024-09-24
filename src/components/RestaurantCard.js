@@ -12,19 +12,19 @@ const RestaurantCard=(props)=>{
     const {cloudinaryImageId,name,cuisines,avgRatingString,costForTwo,deliveryTime} = resData?.info;
     // const {name,cuisines,avgRating,costForTwo,deliveryTime} = resData?.info;
       return(
-        <div className ="m-4 p-5 w-[250px] bg-gray-200 rounded-lg hover:bg-gray-200  h-fit" >
+        <div className ="m-4 p-5 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-200  h-fit" >
           <img className=" rounded-lg  h-64" alt ="res-logo"
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-           cloudinaryImageId
+  cloudinaryImageId
 
           }
           />
               <b className="py-3 text-lg">{name}</b>
-              <h4>{cuisines.join(",")}</h4>
-              <h4>{avgRatingString}stars</h4>
+              <h4 className="font-semibold">{cuisines.join(",")}</h4>
+              <h4 className="  bg-green-500 w-10 font-semibold rounded-sm ">{avgRatingString}⭐</h4>
               <h4>{costForTwo}</h4>
-              <h4>{resData.info.sla.deliveryTime} minutes</h4>
+              <h4 className="font-semibold">{resData.info.sla.deliveryTime} minutes</h4>
 
         </div>
       );

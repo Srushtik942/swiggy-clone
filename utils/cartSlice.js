@@ -9,7 +9,12 @@ const cartSlice = createSlice({
     },
     reducers:{
         addItem :(state, action) =>{
+
+            //Vanilla Redux (old version): we can't mutate in vanilla redux
+            //redux used IMMER Library
             //mutating state over here
+
+
         state.items.push(action.payload);
         },
         removeItem:(state)=>{
