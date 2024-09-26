@@ -1,6 +1,6 @@
 import React from "react";
-// import User from "./user";
-import UserClass from "./userclass";
+import User from "./user";
+import UserClass from "./UserClass";
 import { render } from "react-dom";
 import UserContext from "../../utils/UserContext";
 
