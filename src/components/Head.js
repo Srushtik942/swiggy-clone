@@ -1,15 +1,16 @@
 
 
+import { SWIGGY_CAROUSEL_URL } from "../../utils/constants";
+
 const Head =(props) =>{
     const {Datares} = props;
     const {imageId} = Datares?.id || {};
 
     return(
-        <div className="rounded-lg">
+        <div className=" carousel-card">
 
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
-            + imageId}
-            ></img>
+            <img src={SWIGGY_CAROUSEL_URL+ imageId}
+            alt="img"></img>
             </div>
 
     );

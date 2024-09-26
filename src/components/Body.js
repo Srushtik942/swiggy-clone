@@ -7,6 +7,7 @@ import Head  from "./Head";
 
 
 
+
 //normal variable
 // let resData=[];
 const Body = ()=>{
@@ -14,7 +15,7 @@ const Body = ()=>{
   //local state variable
   const[listofRestaurant,setListOfRestaurant] = useState([]);
   const[filteredRestaurant, setfilteredRestaurant] = useState([]);
-  const [list,setlist] = useState([]);
+  const [CarouselList,setCarouselList] = useState([]);
 
   const [searchText, setsearchText] = useState("");
 
@@ -43,9 +44,9 @@ const fetchData = async ()=>{
   console.log(setListOfRestaurant);
   console.log(setfilteredRestaurant);
 
-  const resMenu = (json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-  setlist(resMenu);
-  console.log(resMenu);
+  const CarouselList= (json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+  setCarouselList(CarouselList);
+  console.log(CarouselList);
 
 };
 
@@ -77,9 +78,18 @@ const TopRated = () =>{
 
 
      <div className="body ">
-      <div className="font-bold text-lg px-10 m-4">Hey Foodie! Whats, on your mind?🤭</div>
-
-
+      <div>
+        {/* <h1 className="font-bold text-2xl mb-0 text-slate-800">
+        Hey Foodie! Whats, on your mind?🤭
+        </h1>
+        <div className="carousel-Container">
+          <div className="carousel">
+            {CarouselList.map((item)=>(
+              <Head key ={item.id} carData = {item}/>
+            ))}
+          </div>
+        </div> */}
+      </div>
 
        <div className="filter flex mx-6">
        <div className="search m-2 p-4 ">
