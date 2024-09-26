@@ -57,7 +57,7 @@ const About =()=>{
     <div class="w-2/3 p-4">
       <h2 class="text-xl font-bold mb-2">Founder</h2>
       <p class="text-gray-600 mb-4">
-      Rachel Andrew, the founder of Zomato, didn't set out to create a global platform. The journey began with a simple observation she and her colleagues were constantly struggling to find updated menus for nearby restaurants.
+      Rachel Andrew, the founder of <b>FoodZee</b>, didn't set out to create a global platform. The journey began with a simple observation she and her colleagues were constantly struggling to find updated menus for nearby restaurants.
       </p>
       <a href="#" class="text-blue-500 hover:underline">Read More</a>
     </div>
