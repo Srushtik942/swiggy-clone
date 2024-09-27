@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "namaste-react",
+			"path": "../../namaste-react"
+		}
+	],
+	"settings": {}
+}

@@ -76,7 +76,7 @@ const About =()=>{
 </div>
 <br></br>
 <div className="text-center">
-<h1>© 2024 Copyright:<b className="text-slate-600 ">Foodzee.com</b></h1>
+<h1>© 2024 Copyright:<b className="text-slate-600 ">This website is for learning purpose</b></h1>
 </div>
 </footer>
 

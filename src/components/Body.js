@@ -77,19 +77,23 @@ const TopRated = () =>{
   ) : (
 
 
-     <div className="body ">
-      <div>
-        {/* <h1 className="font-bold text-2xl mb-0 text-slate-800">
+     <div className="body  mx-26 ">
+      <div className="flex flex-wrap p-4 mx-2 justify-center ">
+        <div className="mx-2">
+        <h1 className="font-bold text-2xl mb-0 text-slate-800 ">
         Hey Foodie! Whats, on your mind?🤭
         </h1>
-        <div className="carousel-Container">
-          <div className="carousel">
+        <div className="carousel-container ">
+          <div className="carousel  flex w-full ">
             {CarouselList.map((item)=>(
-              <Head key ={item.id} carData = {item}/>
+              <Head key ={item.id} cardData = {item}/>
             ))}
           </div>
-        </div> */}
+          </div>
+        </div>
       </div>
+
+      <hr className="shadow-lg"></hr>
 
        <div className="filter flex mx-6">
        <div className="search m-2 p-4 ">
