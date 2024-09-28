@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus.js";
 import Head  from "./Head";
-import resData from "../../utils/mock.js";
+
 
 
 

@@ -1,5 +1,3 @@
-import resObj from "../../utils/mock";
-import resData from "../../utils/mock";
 import UserContext from "../../utils/UserContext";
 import { useContext } from "react";
 

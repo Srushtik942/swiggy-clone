@@ -1,8 +1,5 @@
 import React from "react";
-import User from "./user";
-import UserClass from "./UserClass";
-import { render } from "react-dom";
-import UserContext from "../../utils/UserContext";
+
 
 // class About extends React.Component{
 
