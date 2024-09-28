@@ -1,10 +1,10 @@
 
-import { useEffect, useState, useContext } from "react";
+import {  useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
-import { FaHome, FaUser,FaSms } from 'react-icons/fa'
+
 
 const Header = ()=>{
   // const btnName = "login";
