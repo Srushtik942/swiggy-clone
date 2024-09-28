@@ -1,6 +1,6 @@
-import Lottie from "lottie-react";
-import Animation from "./animation.json";
-import lottie from "lottie-react";
+// import Lottie from "lottie-react";
+// import Animation from "./animation.json";
+// import lottie from "lottie-react";
 
 const Grocery=()=>{
 

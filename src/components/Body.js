@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus.js";
 import Head  from "./Head";
-
+import resData from "../../utils/mock.js";
 
 
 
@@ -35,14 +35,16 @@ const fetchData = async ()=>{
 
   const json = await data.json();
 
+  // const json = resData
+
   console.log(json, listofRestaurant);
 
   //optional chaining
   const restaurants = (json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   setListOfRestaurant(restaurants);
   setfilteredRestaurant(restaurants);
-  console.log(setListOfRestaurant);
-  console.log(setfilteredRestaurant);
+  console.log(listofRestaurant);
+  console.log(filteredRestaurant);
 
   const CarouselList= (json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
   setCarouselList(CarouselList);
@@ -71,7 +73,7 @@ const TopRated = () =>{
 
 
 
-    return listofRestaurant.length === 0 ? (
+    return listofRestaurant?.length === 0 ? (
     <Shimmer/>
 
   ) : (
@@ -85,7 +87,7 @@ const TopRated = () =>{
         </h1>
         <div className="carousel-container ">
           <div className="carousel  flex w-full ">
-            {CarouselList.map((item)=>(
+            {CarouselList?.map((item)=>(
               <Head key ={item.id} cardData = {item}/>
             ))}
           </div>
@@ -123,8 +125,8 @@ const TopRated = () =>{
        <div className="flex flex-wrap ">
         {/* map */}
         {/* Link is used for clickable restaurant card  */}
-       {filteredRestaurant.map((restaurant)=>(
-         <Link key = {restaurant.info.id} to ={"/restaurants/" + restaurant.info.id} class="n1"><RestaurantCard resData={restaurant}/></Link>
+       {filteredRestaurant?.map((restaurant)=>(
+         <Link key = {restaurant?.info?.id} to ={"/restaurants/" + restaurant.info.id} class="n1"><RestaurantCard resData={restaurant}/></Link>
        ))}
 
        </div>
