@@ -1,7 +1,7 @@
 {
   "name": "namaste-react",
   "version": "1.0.0",
-  "description": "This is Namaste React by Akshay Saini",
+  "description": "This is Namaste React ",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -10,15 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namastedev/namaste-react.git"
+    "url": ""
   },
   "keywords": [],
-  "author": "Akshay Saini",
+  "author": "Srushti Kulkarni",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/namastedev/namaste-react/issues"
+  "author": "Srushti Kulkarni",
+    "url": "https://github.com/Srushtik942/namaste-react/issues"
   },
-  "homepage": "https://github.com/namastedev/namaste-react#readme",
+  "homepage": "https://github.com/Srushtik942/namaste-react#readme",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
