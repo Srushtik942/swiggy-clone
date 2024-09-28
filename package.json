@@ -48,5 +48,5 @@
   "browserslist": [
     "last 2 Chrome version"
   ],
-  "main": "tailwind.config.html"
+  "main": "index.js"
 }
