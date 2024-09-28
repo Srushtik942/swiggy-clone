@@ -83,7 +83,7 @@ const TopRated = () =>{
       <div className="flex flex-wrap p-4 mx-2 justify-center ">
         <div className="mx-2">
         <h1 className="font-bold text-2xl mb-0 text-slate-800 ">
-        Hey Foodie! Whats, on your mind?🤭
+        Hey Foodie! Whats, on your mind?
         </h1>
         <div className="carousel-container ">
           <div className="carousel  flex w-full ">

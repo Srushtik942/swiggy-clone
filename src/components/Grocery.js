@@ -8,7 +8,7 @@ const Grocery=()=>{
 <div className="bg-orange-300 p-28  ">
     <h1 className="font-extrabold text-center text-3xl">COMING SOON!</h1>
 
-    <p className="font-mono text-center p-2 m-4">We are still working on it!</p>
+    <p className="font-mono text-center p-2 m-4">We are working on it!</p>
 
     {/* <Lottie className="size-40 items-center m-2 p-20 " animationData ={Animation}/> */}
    <form className="flex flex-col justify-center items-center">
